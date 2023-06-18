@@ -71,4 +71,18 @@ public class TicketServiceImpl implements TicketService{
 		return null;
 	}
 
+	@Override
+	public List<Ticket> getAllUserTickets(String userName) {
+		log.info("Fetching all ticket's for given user");
+		List<Ticket> ticketList = ticketRepo.getUserTicketList(userName);
+		if(ticketList != null && ticketList.size() > 0)
+		{
+			log.info("Fetched {} tickets", ticketList.size());
+			return ticketList;
+		}
+		log.info("No tickets found");
+		return null;
+		
+	}
+
 }

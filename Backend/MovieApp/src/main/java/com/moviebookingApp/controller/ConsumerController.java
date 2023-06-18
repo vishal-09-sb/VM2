@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("call/consumer")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ConsumerController {
 	Logger log = LoggerFactory.getLogger(ConsumerController.class);
 	
@@ -88,8 +88,6 @@ public class ConsumerController {
 	
 	@PostMapping(value = "/logout")
 	public ResponseEntity<?> logout() {
-	    // Your logout logic here
-
 	    // Return a response. This can be a simple success message, a status code, or some data.
 	    // The following line returns a success message and a 200 OK status code.
 		

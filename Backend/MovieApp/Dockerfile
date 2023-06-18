@@ -1,11 +1,11 @@
 # Use OpenJDK 11 as the base image
-FROM openjdk:11-jdk-slim
+FROM openjdk:11
 
-VOLUME /tmp
+# Expose the application on port 8082
+EXPOSE 8082
 
 # Copy the jar file to the image
-COPY target/moviebookingportal-0.0.1-SNAPSHOT.jar app.jar
+ADD target/com-moviebookingapp-docker.jar com-moviebookingapp-docker.jar
 
 # Command to run the application
-ENTRYPOINT ["java", "-jar", "/app.jar"]
-
+ENTRYPOINT ["java", "-jar", "/com-moviebookingapp-docker.jar"]

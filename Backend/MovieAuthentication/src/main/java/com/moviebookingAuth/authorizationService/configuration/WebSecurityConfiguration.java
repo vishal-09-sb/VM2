@@ -44,7 +44,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/authenticate", "/registerNewUser","/username/forget/{email}/{password}","/user/forgetpassword").permitAll()
                 .antMatchers(HttpHeaders.ALLOW).permitAll()
                 .antMatchers("/swagger-ui.html", "/v2/api-docs", "/webjars/**", "/swagger-resources/**").permitAll()
-                .antMatchers("/actuator","/actuator/prometheus","/actuator/mappings","/favicon.ico").permitAll()
+                .antMatchers("/actuator","/actuator/**","/actuator/prometheus","/actuator/mappings","/graph","/actuator/health","/actuator/env","/favicon.ico").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)

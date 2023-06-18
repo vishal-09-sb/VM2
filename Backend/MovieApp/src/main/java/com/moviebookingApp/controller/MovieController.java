@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.moviebookingApp.exceptions.DuplicateMovieIdExceptions;
 import com.moviebookingApp.exceptions.DuplicateMovieNameException;
+import com.moviebookingApp.kafka.MovieKafkaProducer;
 import com.moviebookingApp.model.Movie;
 
 import com.moviebookingApp.model.Ticket;
@@ -34,7 +35,7 @@ import com.moviebookingApp.service.TicketService;
 
 @RestController
 @RequestMapping("/api/v1.0")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class MovieController {
 	
@@ -52,6 +53,10 @@ public class MovieController {
 	
 //	@Autowired
 //	Producer producer;
+	
+	@Autowired
+    private MovieKafkaProducer movieKafkaProducer;
+	
 	 Logger log = LoggerFactory.getLogger(MovieController.class);
 	
 	@PostMapping("/admin/addMovie")
@@ -62,7 +67,7 @@ public class MovieController {
 		
 		//Should only be accessed by admin
 		
-		
+		movieKafkaProducer.sendMovieMessage(movie.getMovieName());
 		
 		ForAdmin();
 		

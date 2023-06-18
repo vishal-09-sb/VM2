@@ -9,8 +9,8 @@
 //public class KafkaConsumer {
 //	
 //	@KafkaListener(topics = "userLoggedTopic", groupId = "group_id")
-//	public void consume(UserDTO user) {
-//		System.out.println("user logged in: "+ user.getUserName());
+//	public void consume(String userName) {
+//		System.out.println("user logged movie: "+userName);
 //	}
 //
 //}

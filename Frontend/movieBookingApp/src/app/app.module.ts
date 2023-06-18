@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth-interceptor.service';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,11 @@ import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { FilterPipe } from './pipe/FilterPipe';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { BookTicketComponent } from './book-ticket/book-ticket.component';
+import { UserTicketsComponent } from './user-tickets/user-tickets.component';
+
+import { AdminGuard } from './admin.guard';
+import { UserGuard } from './user.guard';
+import { NotLoggedInGuard } from './not-logged-in-guard.guard';
 
 @NgModule({
   declarations: [
@@ -36,16 +42,17 @@ import { BookTicketComponent } from './book-ticket/book-ticket.component';
     NavbarComponent,
     AdminNavbarComponent,
     UserNavbarComponent, 
-    FilterPipe, AddMovieComponent, BookTicketComponent,
+    FilterPipe, AddMovieComponent, BookTicketComponent, UserTicketsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },AdminGuard, UserGuard, NotLoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

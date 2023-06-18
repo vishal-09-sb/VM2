@@ -16,7 +16,10 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private authService: AuthService, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
-    this.getAllMovies(); 
+    this.getAllMovies();
+    //this.getMov();
+    
+    
   }
 
   

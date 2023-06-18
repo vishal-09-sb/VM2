@@ -11,13 +11,13 @@
 //public class KafkaProducer {
 //	
 //	@Autowired
-//	private KafkaTemplate<String, UserDTO> kafkaTemplate;
+//	private KafkaTemplate<String, String> kafkaTemplate;
 //	
-//	@Value("${kafka.topic.userLoggedIn")
+//	@Value("${kafka.topic}")
 //	private String topic;
 //	
-//	public void sendUserLoggedInEvent(UserDTO userDTO ) {
-//		kafkaTemplate.send(topic, userDTO);
+//	public void sendUserLoggedInEvent(String userName ) {
+//		kafkaTemplate.send(topic, userName);
 //	}
 //
 //}

@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.moviebookingApp.model.Ticket;
@@ -23,5 +24,8 @@ public interface TicketRepo  extends JpaRepository<Ticket, Integer>
 	@Modifying
 	@Query(value="delete from Ticket where movie_id_fk = :movieId")
 	public void deleteTicketData(int movieId);
+	
+	@Query("select r from Ticket r where r.userName = :userName")
+	List<Ticket> getUserTicketList(@Param("userName") String userName);
 
 }

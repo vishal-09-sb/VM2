@@ -16,6 +16,8 @@ import com.moviebookingApp.filter.JWTfilter;
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+
+
 public class BookApplication {
 	
 //	@Bean

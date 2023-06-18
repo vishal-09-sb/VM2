@@ -26,7 +26,6 @@ public class JWTfilter extends GenericFilterBean {
 		String authHeader = httpReq.getHeader("Authorization");
 		String requestURI = httpReq.getRequestURI();
 		
-		// Skip the authentication check for the login route
 		// Skip the authentication check for the authenticate route
 		System.out.println("Checking uri -> " + requestURI);
 		System.out.println("Auth Header : " + authHeader);

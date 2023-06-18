@@ -29,21 +29,16 @@ public class Ticket {
 
 	@Column(name = "seatsBooked")
 	private int seatsBooked;
+	
+	@Column(name = "userName")
+	private String userName;
 
-	public Ticket(int transactionId, int movie_id_fk, String movieName, int totalSeat, int seatsAvailable,
-			int seatsBooked) {
-		super();
-		this.transactionId = transactionId;
-		this.movie_id_fk = movie_id_fk;
-		this.movieName = movieName;
-		this.totalSeat = totalSeat;
-		this.seatsAvailable = seatsAvailable;
-		this.seatsBooked = seatsBooked;
+	public int getTransactionId() {
+		return transactionId;
 	}
 
-	public Ticket() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setTransactionId(int transactionId) {
+		this.transactionId = transactionId;
 	}
 
 	public int getMovie_id_fk() {
@@ -52,14 +47,6 @@ public class Ticket {
 
 	public void setMovie_id_fk(int movie_id_fk) {
 		this.movie_id_fk = movie_id_fk;
-	}
-
-	public int getTransactionId() {
-		return transactionId;
-	}
-
-	public void setTransactionId(int transactionId) {
-		this.transactionId = transactionId;
 	}
 
 	public String getMovieName() {
@@ -94,4 +81,30 @@ public class Ticket {
 		this.seatsBooked = seatsBooked;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public Ticket(int transactionId, int movie_id_fk, String movieName, int totalSeat, int seatsAvailable,
+			int seatsBooked, String userName) {
+		super();
+		this.transactionId = transactionId;
+		this.movie_id_fk = movie_id_fk;
+		this.movieName = movieName;
+		this.totalSeat = totalSeat;
+		this.seatsAvailable = seatsAvailable;
+		this.seatsBooked = seatsBooked;
+		this.userName = userName;
+	}
+
+	public Ticket() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
 }

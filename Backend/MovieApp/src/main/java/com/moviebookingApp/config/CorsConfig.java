@@ -10,9 +10,12 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000") // Adjust the allowed origin to match your Angular application's URL
+                .allowedOrigins("http://localhost:4200") // Adjust the allowed origin to match your Angular application's URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowedMethods("/", "/actuator", "/actuator/prometheus")
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }
+    
+    
 }

@@ -14,7 +14,7 @@ import com.moviebookingAuth.authorizationService.service.JwtService;
 import com.moviebookingAuth.authorizationService.util.JwtUtil;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 //@RequestMapping("api/v1.0")
 public class JwtController {
 	
@@ -25,7 +25,7 @@ public class JwtController {
 	private JwtUtil jwtutil;
 	
 //	@Autowired
-//	private KafkaProducer kafkaProducer;
+	//private KafkaProducer kafkaProducer;
 	
 
     @PostMapping({"/authenticate"})
@@ -48,7 +48,7 @@ public class JwtController {
     	System.out.println("Result : jwt ");
     	System.out.println(res);
     	
-    	//kafkaProducer.sendUserLoggedInEvent(res.getUser());
+    	//kafkaProducer.sendUserLoggedInEvent(res.getUser().getUserName());
     	
     	
         return res;
